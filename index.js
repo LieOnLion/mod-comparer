@@ -18,15 +18,14 @@ async function setData () {
     document.getElementById("mod1").innerHTML = mod1title + " - " + parseFloat(mod1downloads).toLocaleString('en');
     document.getElementById("mod2").innerHTML = mod2title + " - " + parseFloat(mod2downloads).toLocaleString('en');
 
-    let difference = mod1downloads - mod2downloads
-    let aheadBy = "ahead by: "
+    let difference = mod1downloads - mod2downloads;
+    let by = "ahead by: "
 
     if (difference < 0) {
-        aheadBy = "behind by: ";
-        difference=-difference;
+        by = "behind by: ";
     }
     
-    document.getElementById("difference").innerHTML = aheadBy + parseFloat(difference).toLocaleString('en');
+    document.getElementById("difference").innerHTML = by + parseFloat(Math.abs(difference)).toLocaleString('en');
 }
 
 setData()
